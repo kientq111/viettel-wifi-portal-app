@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { PackageCard } from "./package-card"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
+import { useState } from "react";
+import { PackageCard } from "./package-card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 
 const packages = [
   {
@@ -24,7 +24,12 @@ const packages = [
     speed: "200 Mbps",
     data: "Unlimited",
     contract: "12 months",
-    features: ["Priority support", "Advanced router", "5 device priority", "Free installation"],
+    features: [
+      "Priority support",
+      "Advanced router",
+      "5 device priority",
+      "Free installation",
+    ],
     popular: true,
     color: "purple",
   },
@@ -35,7 +40,13 @@ const packages = [
     speed: "500 Mbps",
     data: "Unlimited",
     contract: "12 months",
-    features: ["24/7 premium support", "Pro router", "Unlimited priority", "Free installation", "Security suite"],
+    features: [
+      "24/7 premium support",
+      "Pro router",
+      "Unlimited priority",
+      "Free installation",
+      "Security suite",
+    ],
     popular: false,
     color: "indigo",
   },
@@ -57,16 +68,18 @@ const packages = [
     popular: false,
     color: "emerald",
   },
-]
+];
 
 export function PackageGrid() {
-  const [selectedPackages, setSelectedPackages] = useState<number[]>([])
+  const [selectedPackages, setSelectedPackages] = useState<number[]>([]);
 
   const togglePackageSelection = (packageId: number) => {
     setSelectedPackages((prev) =>
-      prev.includes(packageId) ? prev.filter((id) => id !== packageId) : [...prev, packageId],
-    )
-  }
+      prev.includes(packageId)
+        ? prev.filter((id) => id !== packageId)
+        : [...prev, packageId]
+    );
+  };
 
   return (
     <section id="packages" className="py-16 sm:py-24">
@@ -75,9 +88,12 @@ export function PackageGrid() {
           <Badge variant="secondary" className="mb-4">
             Choose Your Plan
           </Badge>
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Wi-Fi Packages for Every Need</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+            Wi-Fi Packages for Every Need
+          </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            From basic browsing to professional streaming, we have the perfect package for you.
+            From basic browsing to professional streaming, we have the perfect
+            package for you.
           </p>
         </div>
 
@@ -101,5 +117,5 @@ export function PackageGrid() {
         )}
       </div>
     </section>
-  )
+  );
 }

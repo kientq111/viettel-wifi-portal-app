@@ -11,7 +11,7 @@ import {
 } from "lucide-react";
 
 interface PackageSelectionProps {
-  onNext: (step: string, data?: any) => void;
+  onNext: (step: string, data?: unknown) => void;
   onBack: () => void;
 }
 

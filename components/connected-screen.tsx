@@ -1,23 +1,23 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { CheckCircle, Wifi, Clock, Database, RefreshCw } from "lucide-react"
+import { useEffect } from "react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { CheckCircle, Wifi, Clock, Database, RefreshCw } from "lucide-react";
 
 export function ConnectedScreen() {
-  const [timeRemaining, setTimeRemaining] = useState("5:47:23")
-  const [dataUsed, setDataUsed] = useState("0.2 GB")
-  const [dataRemaining, setDataRemaining] = useState("2.8 GB")
+  const [timeRemaining] = "5:47:23";
+  const dataUsed = "210 MB"; // Simulated data used
+  const dataRemaining = "2.8 GB"; // Simulated data remaining
 
   useEffect(() => {
     // Simulate real-time updates
     const interval = setInterval(() => {
       // Update time and data usage simulation
-    }, 1000)
+    }, 1000);
 
-    return () => clearInterval(interval)
-  }, [])
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -28,7 +28,9 @@ export function ConnectedScreen() {
             <CheckCircle className="w-8 h-8 text-white" />
           </div>
           <h1 className="text-xl font-bold mb-1">Kết nối thành công!</h1>
-          <p className="text-red-100 text-sm">Bạn đã được kết nối với Viettel WiFi</p>
+          <p className="text-red-100 text-sm">
+            Bạn đã được kết nối với Viettel WiFi
+          </p>
         </div>
       </header>
 
@@ -47,12 +49,16 @@ export function ConnectedScreen() {
               <div className="grid grid-cols-2 gap-4">
                 <div className="text-center p-3 bg-gray-50 rounded-lg">
                   <Clock className="w-5 h-5 text-[#EE0034] mx-auto mb-1" />
-                  <p className="text-sm font-medium text-gray-900">{timeRemaining}</p>
+                  <p className="text-sm font-medium text-gray-900">
+                    {timeRemaining}
+                  </p>
                   <p className="text-xs text-gray-600">Thời gian còn lại</p>
                 </div>
                 <div className="text-center p-3 bg-gray-50 rounded-lg">
                   <Database className="w-5 h-5 text-[#EE0034] mx-auto mb-1" />
-                  <p className="text-sm font-medium text-gray-900">{dataRemaining}</p>
+                  <p className="text-sm font-medium text-gray-900">
+                    {dataRemaining}
+                  </p>
                   <p className="text-xs text-gray-600">Data còn lại</p>
                 </div>
               </div>
@@ -62,7 +68,9 @@ export function ConnectedScreen() {
           {/* Usage Details */}
           <Card>
             <CardContent className="p-4">
-              <h3 className="font-semibold text-gray-900 mb-3">Chi tiết sử dụng</h3>
+              <h3 className="font-semibold text-gray-900 mb-3">
+                Chi tiết sử dụng
+              </h3>
               <div className="space-y-3">
                 <div className="flex justify-between items-center">
                   <span className="text-sm text-gray-600">Gói hiện tại:</span>
@@ -84,7 +92,10 @@ export function ConnectedScreen() {
                     <span>7%</span>
                   </div>
                   <div className="w-full bg-gray-200 rounded-full h-2">
-                    <div className="bg-[#EE0034] h-2 rounded-full" style={{ width: "7%" }}></div>
+                    <div
+                      className="bg-[#EE0034] h-2 rounded-full"
+                      style={{ width: "7%" }}
+                    ></div>
                   </div>
                 </div>
               </div>
@@ -93,11 +104,17 @@ export function ConnectedScreen() {
 
           {/* Quick Actions */}
           <div className="grid grid-cols-2 gap-3">
-            <Button variant="outline" className="flex items-center justify-center space-x-2 bg-transparent">
+            <Button
+              variant="outline"
+              className="flex items-center justify-center space-x-2 bg-transparent"
+            >
               <RefreshCw className="w-4 h-4" />
               <span>Làm mới</span>
             </Button>
-            <Button variant="outline" className="flex items-center justify-center space-x-2 bg-transparent">
+            <Button
+              variant="outline"
+              className="flex items-center justify-center space-x-2 bg-transparent"
+            >
               <Database className="w-4 h-4" />
               <span>Mua thêm</span>
             </Button>
@@ -106,7 +123,9 @@ export function ConnectedScreen() {
           {/* Tips */}
           <Card className="bg-blue-50 border-blue-200">
             <CardContent className="p-4">
-              <h4 className="font-semibold text-blue-900 mb-2">💡 Mẹo sử dụng</h4>
+              <h4 className="font-semibold text-blue-900 mb-2">
+                💡 Mẹo sử dụng
+              </h4>
               <ul className="text-sm text-blue-800 space-y-1">
                 <li>• Tắt tự động cập nhật ứng dụng để tiết kiệm data</li>
                 <li>• Sử dụng WiFi cho video call chất lượng tốt nhất</li>
@@ -120,9 +139,10 @@ export function ConnectedScreen() {
       {/* Footer */}
       <footer className="bg-white border-t px-4 py-3">
         <p className="text-xs text-gray-500 text-center">
-          Cần hỗ trợ? Gọi <span className="text-[#EE0034] font-medium">18008098</span>
+          Cần hỗ trợ? Gọi{" "}
+          <span className="text-[#EE0034] font-medium">18008098</span>
         </p>
       </footer>
     </div>
-  )
+  );
 }

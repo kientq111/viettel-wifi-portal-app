@@ -1,32 +1,32 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { ArrowLeft, Smartphone, Lock, Eye, EyeOff } from "lucide-react"
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { ArrowLeft, Smartphone, Lock, Eye, EyeOff } from "lucide-react";
 
 interface LoginFormProps {
-  onNext: (step: string) => void
-  onBack: () => void
+  onNext: (step: string) => void;
+  onBack: () => void;
 }
 
 export function LoginForm({ onNext, onBack }: LoginFormProps) {
-  const [phone, setPhone] = useState("")
-  const [password, setPassword] = useState("")
-  const [showPassword, setShowPassword] = useState(false)
-  const [isLoading, setIsLoading] = useState(false)
+  const [phone, setPhone] = useState("");
+  const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleLogin = async () => {
-    setIsLoading(true)
+    setIsLoading(true);
     // Simulate login process
-    await new Promise((resolve) => setTimeout(resolve, 1500))
-    setIsLoading(false)
-    onNext("connected")
-  }
+    await new Promise((resolve) => setTimeout(resolve, 1500));
+    setIsLoading(false);
+    onNext("connected");
+  };
 
-  const isFormValid = phone.length >= 10 && password.length >= 6
+  const isFormValid = phone.length >= 10 && password.length >= 6;
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -54,7 +54,9 @@ export function LoginForm({ onNext, onBack }: LoginFormProps) {
                 <Lock className="w-8 h-8 text-white" />
               </div>
               <CardTitle className="text-xl">Chào mừng trở lại!</CardTitle>
-              <p className="text-sm text-gray-600">Đăng nhập để tiếp tục sử dụng WiFi</p>
+              <p className="text-sm text-gray-600">
+                Đăng nhập để tiếp tục sử dụng WiFi
+              </p>
             </CardHeader>
 
             <CardContent className="space-y-4">
@@ -97,7 +99,11 @@ export function LoginForm({ onNext, onBack }: LoginFormProps) {
                       className="absolute right-0 top-0 h-full px-3"
                       onClick={() => setShowPassword(!showPassword)}
                     >
-                      {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                      {showPassword ? (
+                        <EyeOff className="w-4 h-4" />
+                      ) : (
+                        <Eye className="w-4 h-4" />
+                      )}
                     </Button>
                   </div>
                 </div>
@@ -133,5 +139,5 @@ export function LoginForm({ onNext, onBack }: LoginFormProps) {
         </div>
       </main>
     </div>
-  )
+  );
 }
